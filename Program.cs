@@ -49,7 +49,7 @@ namespace QueenslandRevenue
             //Task 5: Contestant talents
             Console.WriteLine("The talents and names of the contestants are required.");
 
-            while
+            while //TODO
             Console.Write("Please enter the name of the contestant: ");
             Console.Write("Please enter the contestant's talent: S for singing, D for dancing, " +
                 "M for playing a musical instrument, or O for other: ");
