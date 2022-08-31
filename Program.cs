@@ -54,7 +54,6 @@ namespace QueenslandRevenue
                 }
             }
 
-            /*
             //Task 3: Display input data & revenue for this year's competition
             int revenue;
             
@@ -70,10 +69,10 @@ namespace QueenslandRevenue
             //Task 4: Display statement comparing number of contestants for this year vs last year
             int doubleLastYear = lastYear * 2;
 
-            if (thisYear > lastYear)
-                Console.WriteLine("The competition is bigger than ever!");
-            else if (thisYear >= doubleLastYear)
+            if (thisYear >= doubleLastYear)
                 Console.WriteLine("The competition is more than twice as big this year!");
+            else if (thisYear > lastYear)
+                Console.WriteLine("The competition is bigger than ever!");
             else if (thisYear <= lastYear)
                 Console.WriteLine("A tighter race this year! Come out and cast your vote!");
 
@@ -108,8 +107,6 @@ namespace QueenslandRevenue
             Console.WriteLine("That was not a valid code. Please enter S, D, M or O.");
 
             Console.WriteLine("There are {0} contestants who {1}.", )
-            
-            */
         }
     }
 }
