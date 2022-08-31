@@ -80,11 +80,12 @@ namespace QueenslandRevenue
             //Task 5: Contestant talents data entry & search
             string[] names = new string[thisYear];
             char[] talents = new char[thisYear];
-            bool validTalent = false;
+            
             Console.WriteLine("The talents and names of the contestants for this year are required.");
 
             for (int i = 0; i < thisYear; i++)
             {
+                bool validTalent = false;
                 //ask user for name & store in array
                 Console.Write("Please enter the name of the contestant: ");
                 names[i] = Console.ReadLine();
@@ -102,7 +103,7 @@ namespace QueenslandRevenue
                         case 'D':
                         case 'M':
                         case 'O':
-                            Console.WriteLine("Confirmed. {0} is an {1}.", names[i], talents[i]);
+                            Console.WriteLine("Confirmed. {0} has a special talent code of {1}.", names[i], talents[i]);
                             validTalent = true;
                             break;
                         default:
@@ -114,16 +115,55 @@ namespace QueenslandRevenue
 
             }
 
-            /*
-            //TODO: search arrays &  return talent count
-            string S = "sing", D = "dance", M = "play a musical instrument", O = "have a unique talent"; 
 
-            Console.Write("Enter a code: S, D, M or O >> ");
+            //return talent count for all talents
+            int singCounter = 0;
+            int danceCounter = 0;
+            int musicCounter = 0;
+            int otherCounter = 0;
+
+            for (int i = 0; i < thisYear; i++)
+            {
+                switch (talents[i])
+                {
+                    case 'S':
+                        singCounter++;
+                        break;
+                    case 'D':
+                        danceCounter++;
+                        break;
+                    case 'M':
+                        musicCounter++;
+                        break;
+                    case 'O':
+                        otherCounter++;
+                        break;
+                    //default case not required as all stored values should be valid.
+                    
+                }
+            }
+
+            Console.WriteLine("There are {0} singers, {1} dancers, {2} musicians and {3} contestants with a unique talent.",
+                singCounter, danceCounter, musicCounter, otherCounter);
+
+            /*
+            Console.Write("Enter a code - S, D, M or O, to see how many contestants have that talent: ");
+            char talentQuery = Char.Parse(Console.ReadLine());
+            for (int i = 0; i < thisYear; i++)
+            {
+                if (talentQuery == talents[i])
+                {
+                    talentCounter++;
+                }
+            }
+
+            Console.WriteLine("There are {0} contestants who have the talent code of {1}.", talentCounter, talentQuery);
 
             Console.WriteLine("That was not a valid code. Please enter S, D, M or O.");
 
-            Console.WriteLine("There are {0} contestants who {1}.", )
+            
             */
+
         }
     }
 }
