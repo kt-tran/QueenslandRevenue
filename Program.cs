@@ -12,45 +12,49 @@ namespace QueenslandRevenue
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++");
 
             //Task 2: Prompt user for number of contestants
-            int lastYear = 0;
-            int thisYear;
+            int lastYear = -1;
+            int thisYear = -1;
             const int LOWER = 0, UPPER = 30;
 
             Console.Write("Please enter the number of contestants who entered in last year's competition, " +
                 "within the range of {0} and {1}: ", LOWER, UPPER);
 
-            while (true)
+            int validCount = 0;
+            while (validCount < 2)
             {
-                lastYear = Convert.ToInt32(Console.ReadLine());
-                if (lastYear >= LOWER && lastYear <= UPPER)
+                if (validCount == 0)
                 {
-                    Console.WriteLine("Confirmed. {0} contestants entered in last year's competition.", lastYear);
-                    break;
+                    lastYear = Convert.ToInt32(Console.ReadLine());
+                    if (lastYear >= LOWER && lastYear <= UPPER && validCount < 1)
+                    {
+                        Console.WriteLine("Confirmed. {0} contestants entered in last year's competition.", lastYear);
+                        validCount++;
+                        Console.Write("Please enter the number of contestants who entered in this year's competition, " +
+                            "within the range of {0} and {1}: ", LOWER, UPPER);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid entry. Please enter a number between 0 and 30.");
+                    }
                 }
-                else
+
+                //lastYear code is repeated for this year input
+                if (validCount == 1)
                 {
-                    Console.WriteLine("Invalid entry. Please enter a number between 0 and 30.");
+                    thisYear = Convert.ToInt32(Console.ReadLine());
+                    if (thisYear >= LOWER && thisYear <= UPPER)
+                    {
+                        Console.WriteLine("Confirmed. {0} contestants entered this year.", thisYear);
+                        validCount++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid entry. Please enter a number between 0 and 30.");
+                    }
                 }
             }
 
-
-            //lastYear code is repeated for this year input
-            Console.Write("Please enter the number of contestants who entered in this year's competition: ");
-            while (true)
-            {
-                thisYear = Convert.ToInt32(Console.ReadLine());
-                if (thisYear >= LOWER && thisYear <= UPPER)
-                {
-                    Console.WriteLine("Confirmed. {0} contestants entered this year.", thisYear);
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid entry. Please enter a number between 0 and 30.");
-                }
-            }
-
-
+            /*
             //Task 3: Display input data & revenue for this year's competition
             int revenue;
             
@@ -95,7 +99,17 @@ namespace QueenslandRevenue
 
                 }
             }
+
+            //TODO: search arrays &  return talent count
+            string S = "sing", D = "dance", M = "play a musical instrument", O = "have a unique talent"; 
+
+            Console.Write("Enter a code: S, D, M or O >> ");
+
+            Console.WriteLine("That was not a valid code. Please enter S, D, M or O.");
+
+            Console.WriteLine("There are {0} contestants who {1}.", )
             
+            */
         }
     }
 }
