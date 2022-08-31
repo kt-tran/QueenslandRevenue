@@ -91,15 +91,27 @@ namespace QueenslandRevenue
                 //ask user for talent & store in parallel array
                 Console.Write("Please enter {0}'s special talent: S for singing, D for dancing, " +
                 "M for playing a musical instrument, or O for other: ", names[i]);
-                talents[i] = Char.Parse(Console.ReadLine());
-                validTalent = (talents[i] == 'S' || talents[i] == 'D' || talents[i] == 'M' || talents[i] == 'O');
-                while (!validTalent)
+                //talents[i] = Char.Parse(Console.ReadLine());
+
+                while(!validTalent)
                 {
-                    Console.WriteLine("That was not a valid code. Please enter S for singing, D for dancing," +
-                        "M for playing a musical instrument or 0 for other: ");
                     talents[i] = Char.Parse(Console.ReadLine());
-                    validTalent = (talents[i] == 'S' || talents[i] == 'D' || talents[i] == 'M' || talents[i] == 'O');
+                    switch (talents[i])
+                    {
+                        case 'S':
+                        case 'D':
+                        case 'M':
+                        case 'O':
+                            Console.WriteLine("Confirmed. {0} is an {1}.", names[i], talents[i]);
+                            validTalent = true;
+                            break;
+                        default:
+                            Console.WriteLine("That was not a valid code. Please enter S for singing, D for dancing," +
+                            "M for playing a musical instrument or 0 for other: ");
+                            break;
+                    }
                 }
+
             }
 
             /*
