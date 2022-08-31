@@ -80,12 +80,13 @@ namespace QueenslandRevenue
             //Task 5: Contestant talents data entry & search
             string[] names = new string[thisYear];
             char[] talents = new char[thisYear];
-            
+            bool validTalent = false;
+
             Console.WriteLine("The talents and names of the contestants for this year are required.");
 
             for (int i = 0; i < thisYear; i++)
             {
-                bool validTalent = false;
+                validTalent = false;
                 //ask user for name & store in array
                 Console.Write("Please enter the name of the contestant: ");
                 names[i] = Console.ReadLine();
@@ -146,24 +147,38 @@ namespace QueenslandRevenue
             Console.WriteLine("There are {0} singers, {1} dancers, {2} musicians and {3} contestants with a unique talent.",
                 singCounter, danceCounter, musicCounter, otherCounter);
 
-            /*
-            Console.Write("Enter a code - S, D, M or O, to see how many contestants have that talent: ");
-            char talentQuery = Char.Parse(Console.ReadLine());
-            for (int i = 0; i < thisYear; i++)
+            // user search + return contestants using parallel array
+            const char STOP = '!';
+            char talentQuery = ' ';
+
+            while (talentQuery != STOP)
             {
-                if (talentQuery == talents[i])
+                Console.Write("Enter a code - S, D, M or O, to see how many contestants have that talent or enter {0} to exit: ",
+                STOP);
+                talentQuery = Char.Parse(Console.ReadLine());
+
+                switch (talentQuery)
                 {
-                    talentCounter++;
+                    case 'S':
+                    case 'D':
+                    case 'M':
+                    case 'O':
+                        for (int i = 0; i < thisYear; i++)
+                        {
+                            if (talentQuery == talents[i])
+                            {
+                                Console.WriteLine(names[i]);
+                            }
+                        }
+                        break;
+                    case '!':
+                        break;
+                    default:
+                        Console.WriteLine("That was not a valid code.");
+                        break;
                 }
+                
             }
-
-            Console.WriteLine("There are {0} contestants who have the talent code of {1}.", talentCounter, talentQuery);
-
-            Console.WriteLine("That was not a valid code. Please enter S, D, M or O.");
-
-            
-            */
-
         }
     }
 }
