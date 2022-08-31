@@ -85,20 +85,24 @@ namespace QueenslandRevenue
 
             for (int i = 0; i < thisYear; i++)
             {
+                //ask user for name & store in array
                 Console.Write("Please enter the name of the contestant: ");
                 names[i] = Console.ReadLine();
+                //ask user for talent & store in parallel array
                 Console.Write("Please enter {0}'s special talent: S for singing, D for dancing, " +
                 "M for playing a musical instrument, or O for other: ", names[i]);
                 talents[i] = Char.Parse(Console.ReadLine());
                 validTalent = (talents[i] == 'S' || talents[i] == 'D' || talents[i] == 'M' || talents[i] == 'O');
-                while (validTalent)
+                while (!validTalent)
                 {
                     Console.WriteLine("That was not a valid code. Please enter S for singing, D for dancing," +
-                "M for playing a musical instrument or 0 for other: ");
-
+                        "M for playing a musical instrument or 0 for other: ");
+                    talents[i] = Char.Parse(Console.ReadLine());
+                    validTalent = (talents[i] == 'S' || talents[i] == 'D' || talents[i] == 'M' || talents[i] == 'O');
                 }
             }
 
+            /*
             //TODO: search arrays &  return talent count
             string S = "sing", D = "dance", M = "play a musical instrument", O = "have a unique talent"; 
 
@@ -107,6 +111,7 @@ namespace QueenslandRevenue
             Console.WriteLine("That was not a valid code. Please enter S, D, M or O.");
 
             Console.WriteLine("There are {0} contestants who {1}.", )
+            */
         }
     }
 }
