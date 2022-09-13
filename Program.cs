@@ -8,7 +8,7 @@ namespace QueenslandRevenue
         {
             //Task 1: Display the competition's motto surrounded by a border
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++");
-            Console.WriteLine("+ The Stars shine in Queensland for n11159243. +");
+            Console.WriteLine("+ The Stars shine in Queensland for STUDENTNUMBER. +");
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++");
 
             //Task 2: Prompt user for number of contestants
