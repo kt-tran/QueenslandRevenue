@@ -1,5 +1,5 @@
 # QueenslandRevenue
-IFN555 Assignment
+*University Assignment*
 
 Basic C# program demonstrating:
 - if/else & switch statements
